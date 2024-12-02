@@ -198,27 +198,6 @@
                 type: 'array',
                 values: value
             };
-            // const i = 'JMJS_LIST:'+Math.random().toString(36);
-            // addOperation({
-            //     action: 'set_variable_create_list',
-            //     values: [{
-            //         name: 'variable',
-            //         value: {
-            //             type: 'variable',
-            //             variable: i,
-            //             scope: 'local'
-            //         }
-            //     },{
-            //         name: 'values',
-            //         value: getValue(value)
-            //     }]
-            // });
-
-            // return {
-            //     type: 'variable',
-            //     variable: i,
-            //     scope: 'local'
-            // };
         }else{
             if(dont){
                 let result = {type: 'array', values: []};
@@ -288,7 +267,6 @@
                         length: pvalue.length
                     }
                 }
-                // gPath('local', path, `JMJS_lvar:${path}`);
                 addO('set_variable_set_list_value', [{
                     name: 'variable',
                     value: {
@@ -310,7 +288,6 @@
                     name: 'value',
                     value: getValue(pvalue.type=='variable'?pvalue:pvalue[pvalue.length-1])
                 }]);
-                // setVar(type, name, getVar('local', `JMJS_lvar:${path}`));
             }else{
                 addO('set_variable_set_list_value', [{
                     name: 'variable',
