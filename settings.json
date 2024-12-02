@@ -1,0 +1,5 @@
+{
+    "savefile": "%file%.json",
+    "uploadModule": true,
+    "autoupdate": true
+}
