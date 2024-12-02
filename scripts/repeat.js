@@ -1,15 +1,4 @@
 (()=>{
-    // function forever(callback){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_forever',
-    //         operations: [],
-    //         values: [],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback();
-    //     cOperation = old;
-    // }
     function range(v, min, max, step, callback){
         if(!getValue(v).variable){
             local['index'] = 0;
@@ -86,149 +75,6 @@
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-    // function multiTimes(variable, amount, callback){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_multi_times',
-    //         operations: [],
-    //         values: [{
-    //             name: 'variable',
-    //             value: getValue(variable)
-    //         },{
-    //             name: 'amount',
-    //             value: getValue(amount)
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback();
-    //     cOperation = old;
-    // }
-    // function forEachInList(index, value, list){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_for_each_in_list',
-    //         operations: [],
-    //         values: [{
-    //             name: 'index',
-    //             value: getValue(index)
-    //         },{
-    //             name: 'value',
-    //             value: getValue(value)
-    //         },{
-    //             name: 'list',
-    //             value: getValue(list)
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback(`%var_local(${getValue(index).variable})`, `%var_local(${getValue(value).variable})`);
-    //     cOperation = old;
-    // }
-    // function forEachMapEntry(key, value, map){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_for_each_map_entry',
-    //         operations: [],
-    //         values: [{
-    //             name: 'key',
-    //             value: getValue(key)
-    //         },{
-    //             name: 'value',
-    //             value: getValue(value)
-    //         },{
-    //             name: 'map',
-    //             value: getValue(map)
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback(`%var_local(${getValue(key).variable})`, `%var_local(${getValue(value).variable})`);
-    //     cOperation = old;
-    // }
-    // function onGrid(variable, start, end){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_on_grid',
-    //         operations: [],
-    //         values: [{
-    //             name: 'variable',
-    //             value: getValue(variable)
-    //         },{
-    //             name: 'start',
-    //             value: getValue(start)
-    //         },{
-    //             name: 'end',
-    //             value: getValue(end)
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback(`%var_local(${getValue(variable).variable})`);
-    //     cOperation = old;
-    // }
-    // function adjacently(variable, origin, change_rotation, include_self, pattern){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_on_grid',
-    //         operations: [],
-    //         values: [{
-    //             name: 'variable',
-    //             value: getValue(variable)
-    //         },{
-    //             name: 'origin',
-    //             value: getValue(origin)
-    //         },{
-    //             name: 'change_rotation',
-    //             value: {
-    //                 type: 'enum',
-    //                 enum: change_rotation
-    //             }
-    //         },{
-    //             name: 'include_self',
-    //             value: {
-    //                 type: 'enum',
-    //                 enum: include_self
-    //             }
-    //         },{
-    //             name: 'pattern',
-    //             value: {
-    //                 type: 'enum',
-    //                 enum: pattern
-    //             }
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback(`%var_local(${getValue(variable).variable})`);
-    //     cOperation = old;
-    // }
-    // function onGrid(variable, start, end){
-    //     let old = cOperation;
-    //     addOperation({
-    //         action: 'repeat_on_grid',
-    //         operations: [],
-    //         values: [{
-    //             name: 'variable',
-    //             value: getValue(variable)
-    //         },{
-    //             name: 'start',
-    //             value: getValue(start)
-    //         },{
-    //             name: 'end',
-    //             value: getValue(end)
-    //         }],
-    //     });
-    //     cOperation = cOperation[cOperation.length-1].operations;
-    //     if(callback) callback(`%var_local(${getValue(variable).variable})`);
-    //     cOperation = old;
-    // }
     
     const methods = {};
     const arr = actionsInfo.filter(e => e.object == 'repeat' && e.type == 'container' && !['range','while'].includes(e.name));
@@ -241,7 +87,6 @@
             _args.forEach(arg=>{
                 if(typeof arg == 'function') callback = arg;
             });
-            // console.log(_args)
             args = obj.args.map((arg, i) => {
                 let value = _args[i];
                 
@@ -265,7 +110,6 @@
             const lamdba = obj.lambda.map((arg, i) => {
                 return `%var_local(${arg.id})`;
             });
-            // console.log(args, lamdba)
             
             let old = cOperation;
             addOperation({
@@ -279,27 +123,9 @@
         }
     });
 
-
-
-
-    // ✔ repeat_forever
-    // ✔ repeat_while
-    // ▢ repeat_multi_times
-    // ✔ repeat_on_range
-    // ▢ repeat_for_each_in_list
-    // ▢ repeat_for_each_map_entry
-    // ▢ repeat_on_grid
-    // ▢ repeat_adjacently
-    // ⨉ repeat_on_path
-    // ⨉ repeat_on_circle
-    // ⨉ repeat_on_sphere
-
     return {
         range, whilе, whilee: whilе, wwhile: whilе, While: whilе, WHILE: whilе, _while: whilе, while_: whilе,
         dо, До: dо, до: dо, DO: dо, Do: dо, do_: dо, _do: dо,
         ...methods
-
-        // multiTimes, forEachInList, forEachMapEntry,
-        // onGrid, adjacently
     }
 });
