@@ -29,7 +29,6 @@ async function checkVer(){
                 }
             }else{
                 const data = (await(await fetch(`https://raw.githubusercontent.com/lumik0/jmjs/refs/heads/main/${file.path}`)).text());
-                // fetch(`https://raw.githubusercontent.com/lumik0/jmjs/refs/heads/main/${file.path}`).then(e=>e.text()).then(data=>console.log(data)).catch(e=>console.error('error',e));
                 fs.writeFileSync(`${__dirname}/${file.path}`, data);
             }
         }
@@ -228,43 +227,6 @@ function addOperation(data, cur) {
         setCHandler(cMain = events.lastHandler);
         cur = cMain.operations;
     }
-
-    // попытка сделать "функцию деления"
-    // if(cur.length > 41){
-    //     function make(pos, id){
-    //         const name = `JMJS_dls${pos}_${id}`;
-    //         if(!vars.functions[name] && cur.length == 42){
-    //             cur.push({
-    //                 action: 'call_function',
-    //                 values: [{
-    //                     name: 'function_name',
-    //                     value: getValue(name)
-    //                 }]
-    //             });
-    //         }
-    //         funs[name] = ()=>{}
-    //         if(vars.functions[name]){
-    //             if(vars.functions[name].handler.operations.length == 42){
-    //                 vars.functions[name].handler.operations.push({
-    //                     action: 'call_function',
-    //                     values: [{
-    //                         name: 'function_name',
-    //                         value: getValue(name)
-    //                     }]
-    //                 });
-    //                 return make(pos, id+1);
-    //             }
-    //             if(vars.functions[name].handler.operations.length > 42) return;
-    //             vars.functions[name].handler.operations.push({
-    //                 action: data.action,
-    //                 values: data.values??[],
-    //                 ...data
-    //             });
-    //         }
-    //     }
-    //     make(events.lastHandler.position, 0);
-    //     return cur;
-    // }s
     
     cur.push({
         action: data.action,
