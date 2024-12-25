@@ -2,6 +2,6 @@
 
 [Пример](./examples/example.js)
 
-№ Требования:
+# Требования:
 - [Node.js](https://nodejs.org/en/download/current)
 - Мозг
