@@ -561,6 +561,7 @@
                     value = clone(value);
                     const oldValue = target[property];
                     const fullPath = path.concat(property).join(doth);
+                    if(fullPath.split(doth)[0].toLowerCase().startsWith('jmjs_')) throw 'Запрещены названия начинающиеся на "JMJS_"';
                     if(typeof value == 'function') return target[property] = value;
                     if(oldValue === value) return false;
                     
