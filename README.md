@@ -1,5 +1,7 @@
 # JMJS
 
-мне лень писать, короче устанавливайте [node.js](https://nodejs.org/en/download/current)
-
 [Пример](./examples/example.js)
+
+№ Требования:
+- [Node.js](https://nodejs.org/en/download/current)
+- Мозг
